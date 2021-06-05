@@ -1,13 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,700;1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  --azulClaro: #26bfff;
+  --azulNormal: #0ca7e8;
+  --azulOscuro: #147199;
+  --naranja: #eb7f00;
+  --blanco: #ffffff;
+  --negro: #000000;
+}
+
+html.noche {
+  --azulClaro: #ffff00;
+  --azulNormal: #e4e400;
+  --azulOscuro: #c4c400;
+  --naranja: #ffff00;
+  --blanco: #000000;
+  --negro: #ffff00;
+}
+
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -15,22 +34,39 @@ svg {
   height: 2rem;
   width: 2rem;
   padding-left: 0.5rem;
+  fill: var(--azulOscuro);
+  justify-self: flex-start;
+  margin-right: auto;
 }
 
 path {
-  fill: #147199;
+  fill: var(--azulOscuro);
 }
 
 body {
-  background-color: #26bfff;
+  background-color: var(--azulClaro);
   display: flex;
   justify-content: right;
   flex-direction: column;
   height: 100vh;
 }
 
+header button {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("/media/moon.png");
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  margin-right: 1rem;
+}
+
+html.noche header button {
+  background-image: url("/media/sun.png");
+}
+
 div {
-  background: #0ca7e8;
+  background: var(--azulNormal);
   text-align: center;
   /* display: flex; */
   flex-basis: max-content;
@@ -39,7 +75,6 @@ div {
   font-family: "Roboto Mono", monospace;
   font-style: italic;
   font-size: 1rem;
-  /* word-break: keep-all; */
 }
 
 textarea {
@@ -47,14 +82,22 @@ textarea {
   padding: 1rem;
   outline: none;
   font-size: 1rem;
+  color: var(--negro);
+  background-color: var(--blanco);
 }
 
-button {
-  background-color: #eb7f00;
-  font-family: "Roboto Mono", monospace;
+body > button {
+  background-color: var(--naranja);
+  font-family: "Roboto Slab", monospace;
   font-weight: bold;
   font-size: 1.5rem;
   border: 0;
+}
+
+html.noche body > button {
+  border: 1px solid yellow;
+  background: var(--blanco);
+  color: var(--negro);
 }
 
 @media (min-width: 600px) {
